@@ -29,10 +29,36 @@ public class SettingActivity extends AppCompatActivity {
 
     private String questionNumStr;
 
+    private CheckBox RandomCheckBox;
+    private CheckBox FavoriteCheckBox;
+    private CheckBox HumanCheckBox;
+    private CheckBox AnimeCheckBox;
+    private CheckBox SingerCheckBox;
+    private CheckBox EntertainerCheckBox;
+    private CheckBox IdolCheckBox;
+    private CheckBox AthleteCheckBox;
+    private CheckBox RemoveNicheCheckBox;
+    private CheckBox OnlyNicheCheckBox;
+    private CheckBox BaseballCheckBox;
+    private CheckBox FootballCheckBox;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
+        RandomCheckBox = findViewById(R.id.isRandomCheckBox);
+        FavoriteCheckBox = findViewById(R.id.isFavoriteCheckBox);
+        HumanCheckBox = findViewById(R.id.isHumanCheckBox);
+        AnimeCheckBox = findViewById(R.id.isAnimeCheckBox);
+        SingerCheckBox = findViewById(R.id.isSingerCheckBox);
+        EntertainerCheckBox = findViewById(R.id.isEntertainerCheckBox);
+        IdolCheckBox = findViewById(R.id.isIdolCheckBox);
+        AthleteCheckBox = findViewById(R.id.isAthleteCheckBox);
+        RemoveNicheCheckBox = findViewById(R.id.isRemoveNicheCheckBox);
+        OnlyNicheCheckBox = findViewById(R.id.isOnlyNicheCheckBox);
+        BaseballCheckBox = findViewById(R.id.isBaseballCheckBox);
+        FootballCheckBox = findViewById(R.id.isFootballCheckBox);
 
         reflectOldConfig();
 
@@ -57,19 +83,6 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     public void CheckBoxClick(View view){ //リファレンスに簡潔な方法が載ってた
-
-        CheckBox RandomCheckBox = findViewById(R.id.isRandomCheckBox);
-        CheckBox FavoriteCheckBox = findViewById(R.id.isFavoriteCheckBox);
-        CheckBox HumanCheckBox = findViewById(R.id.isHumanCheckBox);
-        CheckBox AnimeCheckBox = findViewById(R.id.isAnimeCheckBox);
-        CheckBox SingerCheckBox = findViewById(R.id.isSingerCheckBox);
-        CheckBox EntertainerCheckBox = findViewById(R.id.isEntertainerCheckBox);
-        CheckBox IdolCheckBox = findViewById(R.id.isIdolCheckBox);
-        CheckBox AthleteCheckBox = findViewById(R.id.isAthleteCheckBox);
-        CheckBox RemoveNicheCheckBox = findViewById(R.id.isRemoveNicheCheckBox);
-        CheckBox OnlyNicheCheckBox = findViewById(R.id.isOnlyNicheCheckBox);
-        CheckBox BaseballCheckBox = findViewById(R.id.isBaseballCheckBox);
-        CheckBox FootballCheckBox = findViewById(R.id.isFootballCheckBox);
 
         boolean checked = ((CheckBox)view).isChecked();
         switch(view.getId()){
@@ -174,19 +187,6 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     public void startQuiz(View view){
-        CheckBox RandomCheckBox = findViewById(R.id.isRandomCheckBox);
-        CheckBox FavoriteCheckBox = findViewById(R.id.isFavoriteCheckBox);
-        CheckBox HumanCheckBox = findViewById(R.id.isHumanCheckBox);
-        CheckBox AnimeCheckBox = findViewById(R.id.isAnimeCheckBox);
-        CheckBox SingerCheckBox = findViewById(R.id.isSingerCheckBox);
-        CheckBox EntertainerCheckBox = findViewById(R.id.isEntertainerCheckBox);
-        CheckBox IdolCheckBox = findViewById(R.id.isIdolCheckBox);
-        CheckBox AthleteCheckBox = findViewById(R.id.isAthleteCheckBox);
-        CheckBox RemoveNicheCheckBox = findViewById(R.id.isRemoveNicheCheckBox);
-        CheckBox OnlyNicheCheckBox = findViewById(R.id.isOnlyNicheCheckBox);
-        CheckBox BaseballCheckBox = findViewById(R.id.isBaseballCheckBox);
-        CheckBox FootballCheckBox = findViewById(R.id.isFootballCheckBox);
-
 
         //File tagConfig = new File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS).toString() + "/tagConfig.txt"); //デバッグのため外部へ
         File tagConfig = new File(getApplicationContext().getFilesDir(),"/tagConfig.txt");
@@ -266,19 +266,8 @@ public class SettingActivity extends AppCompatActivity {
 
 
     public void reflectOldConfig(){ //前回 書き込んだ設定ファイルを参照して反映させる
-        CheckBox RandomCheckBox = findViewById(R.id.isRandomCheckBox);
-        CheckBox FavoriteCheckBox = findViewById(R.id.isFavoriteCheckBox);
-        CheckBox HumanCheckBox = findViewById(R.id.isHumanCheckBox);
-        CheckBox AnimeCheckBox = findViewById(R.id.isAnimeCheckBox);
-        CheckBox SingerCheckBox = findViewById(R.id.isSingerCheckBox);
-        CheckBox EntertainerCheckBox = findViewById(R.id.isEntertainerCheckBox);
-        CheckBox IdolCheckBox = findViewById(R.id.isIdolCheckBox);
-        CheckBox AthleteCheckBox = findViewById(R.id.isAthleteCheckBox);
+
         Spinner spinner = findViewById(R.id.questionNumSpinner);
-        CheckBox RemoveNicheCheckBox = findViewById(R.id.isRemoveNicheCheckBox);
-        CheckBox OnlyNicheCheckBox = findViewById(R.id.isOnlyNicheCheckBox);
-        CheckBox BaseballCheckBox = findViewById(R.id.isBaseballCheckBox);
-        CheckBox FootballCheckBox = findViewById(R.id.isFootballCheckBox);
         //TextView debugText3 = findViewById(R.id.debugText3);
 
         File tagConfig = new File(getApplicationContext().getFilesDir(),"/tagConfig.txt");
@@ -394,18 +383,6 @@ public class SettingActivity extends AppCompatActivity {
 
     private ArrayList<String> createTagList(){ //どのチェックボックスがチェックされているかを調べて、該当するタグをArrayListに入れる
         ArrayList<String> tagList = new ArrayList<>();
-        CheckBox RandomCheckBox = findViewById(R.id.isRandomCheckBox);
-        CheckBox FavoriteCheckBox = findViewById(R.id.isFavoriteCheckBox);
-        CheckBox HumanCheckBox = findViewById(R.id.isHumanCheckBox);
-        CheckBox AnimeCheckBox = findViewById(R.id.isAnimeCheckBox);
-        CheckBox SingerCheckBox = findViewById(R.id.isSingerCheckBox);
-        CheckBox EntertainerCheckBox = findViewById(R.id.isEntertainerCheckBox);
-        CheckBox IdolCheckBox = findViewById(R.id.isIdolCheckBox);
-        CheckBox AthleteCheckBox = findViewById(R.id.isAthleteCheckBox);
-        CheckBox RemoveNicheCheckBox = findViewById(R.id.isRemoveNicheCheckBox);
-        CheckBox OnlyNicheCheckBox = findViewById(R.id.isOnlyNicheCheckBox);
-        CheckBox BaseballCheckBox = findViewById(R.id.isBaseballCheckBox);
-        CheckBox FootballCheckBox = findViewById(R.id.isFootballCheckBox);
 
         if(!RandomCheckBox.isChecked()) {
             if(FavoriteCheckBox.isChecked()) tagList.add("@@");

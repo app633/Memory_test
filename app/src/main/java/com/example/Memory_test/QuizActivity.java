@@ -45,10 +45,23 @@ public class QuizActivity extends AppCompatActivity { //クイズ出題画面の
     private int requiredQuestionNum = 0;
     private ArrayList<ArrayList<String>> quizList = new ArrayList<>();
     private int randomNum;
+
+    private Button answerButton;
+    private Button nextQuizButton;
+    private TextView pseudonymText;
+    private TextView memberText;
+    private TextView nowNumberText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        answerButton = findViewById(R.id.answerCheckButton);
+        nextQuizButton = findViewById(R.id.nextQuizButton);
+        pseudonymText = findViewById(R.id.pseudonymText);
+        memberText = findViewById(R.id.memberText);
+        nowNumberText = findViewById(R.id.nowNumberText);
 
         File tagConfig = new File(getApplicationContext().getFilesDir(),"/tagConfig.txt"); //タグ設定ファイル
         ArrayList<String> tagList = new ArrayList<>();
@@ -193,11 +206,7 @@ public class QuizActivity extends AppCompatActivity { //クイズ出題画面の
     public void nextQuizClick(View view){ //次の問題へボタンが押されたときの動作
         if(nowQuizNum != (requiredQuestionNum - 1)){
             nowQuizNum++;
-            Button answerButton = findViewById(R.id.answerCheckButton);
-            TextView pseudonymText = findViewById(R.id.pseudonymText);
-            TextView memberText = findViewById(R.id.memberText);
-            Button nextQuizButton = findViewById(R.id.nextQuizButton);
-            TextView nowNumberText = findViewById(R.id.nowNumberText);
+
             answerButton.setText("答えを表示");
             pseudonymText.setText("");
             memberText.setText("");
@@ -240,11 +249,7 @@ public class QuizActivity extends AppCompatActivity { //クイズ出題画面の
     public void beforeQuizClick(View view){ //前の問題へボタンが押されたときの動作
         if(nowQuizNum != 0){
             nowQuizNum--;
-            Button answerButton = findViewById(R.id.answerCheckButton);
-            Button nextQuizButton = findViewById(R.id.nextQuizButton);
-            TextView pseudonymText = findViewById(R.id.pseudonymText);
-            TextView memberText = findViewById(R.id.memberText);
-            TextView nowNumberText = findViewById(R.id.nowNumberText);
+
             answerButton.setText("答えを表示");
             nextQuizButton.setText("次の問題へ");
             pseudonymText.setText("");
@@ -292,9 +297,6 @@ public class QuizActivity extends AppCompatActivity { //クイズ出題画面の
     }
 
     public void answerButtonClick(View view){ //答えを表示ボタンの動作
-        Button answerButton = findViewById(R.id.answerCheckButton);
-        TextView pseudonymText = findViewById(R.id.pseudonymText);
-        TextView memberText = findViewById(R.id.memberText);
 
         answerButton.setText(quizList.get(nowQuizNum).get(1));
         pseudonymText.setText(quizList.get(nowQuizNum).get(2));
